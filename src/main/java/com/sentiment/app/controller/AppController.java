@@ -14,6 +14,7 @@ import com.sentiment.app.controller.dto.lyrics.trackSearchRequest.TrackSearchReq
 import com.sentiment.app.service.AppService;
 import com.sentiment.app.service.LyricLookup;
 import com.sentiment.app.service.TrackLookup;
+import com.sentiment.app.utility.DataCleaner;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,7 +38,11 @@ public class AppController {
 	public Response getSentiment(@RequestBody TrackSearchRequest request) {
 		try {
 			String message = appService.getSentiment(
-					lyricLookup.getSongLyrics(trackLookup.getSongId(request.getTrackName(), request.getArtistName())));
+					DataCleaner.cleanLyrics(
+							lyricLookup.getSongLyrics(
+									trackLookup.getSongId(
+											request.getTrackName(),
+											request.getArtistName()))));
 			return Response.builder().data(message).build();
 		} catch (Exception e) {
 			log.error("Error occurred while calling sayHello()", e);
