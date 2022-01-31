@@ -60,7 +60,7 @@ spring:
     banner-mode: off
 ---
 api:
-  python-script-path: './src/main/resources/hello.py'
+  python-script-path: './src/main/resources/basicsentiment.py'
   lyrics-path: 'http://api.musixmatch.com/ws/1.1/'
 ---
 
