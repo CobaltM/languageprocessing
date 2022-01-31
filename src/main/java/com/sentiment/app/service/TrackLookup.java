@@ -47,7 +47,7 @@ public class TrackLookup {
 
 		return plaintextResponse.map(ret -> {
 			try {
-				TrackSearch object = new ObjectMapper().readValue(ret, TrackSearch.class);
+				TrackSearch object = objectMapper.readValue(ret, TrackSearch.class);
 				return object;
 			} catch (IOException e) {
 				log.error("IO Exception!",e);
