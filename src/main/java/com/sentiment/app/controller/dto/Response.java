@@ -1,4 +1,4 @@
-package com.example.app.controller.dto;
+package com.sentiment.app.controller.dto;
 
 import java.io.Serializable;
 import java.util.List;
